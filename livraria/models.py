@@ -16,6 +16,13 @@ class Categoria(models.Model):
     def __str__(self):
         return self.descricao
 
+class CategoriaLivro(models.Model):
+    livro = models.ForeignKey("Livro", on_delete=models.CASCADE)
+    categoria = models.ForeignKey("Categoria", on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.livro} - {self.categoria}"
+
 class Editora(models.Model):
     nome = models.CharField(max_length=100)
     site = models.URLField(null=True, blank=True)
@@ -29,9 +36,7 @@ class Livro(models.Model):
     isbn = models.CharField(max_length=32, null=True, blank=True)
     quantidade = models.IntegerField(default=0)
     preco = models.DecimalField(max_digits=7, decimal_places=2, default=0)
-    categoria = models.ForeignKey(
-            Categoria, on_delete=models.PROTECT, related_name="livros"
-    )
+    categorias = models.ManyToManyField(Categoria, related_name="livros", through='LivroCategoria')
     editora = models.ForeignKey(Editora, on_delete=models.PROTECT, related_name="livros")
     autores = models.ManyToManyField(Autor, related_name="livros")
 
