@@ -1,6 +1,12 @@
 from rest_framework.serializers import ModelSerializer
 
-from livraria.models import Categoria, Editora, Livro
+from livraria.models import Autor, Categoria, Editora, Livro
+
+class AutorSerializer(ModelSerializer):
+    class Meta:
+        model = Autor
+        fields = ["autores"]
+        depth = 1
 
 class CategoriaSerializer(ModelSerializer):
     class Meta:
@@ -17,3 +23,6 @@ class LivroSerializer(ModelSerializer):
         model = Livro
         fields = "__all__"
         depth = 1
+
+
+

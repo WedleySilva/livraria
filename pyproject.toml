@@ -8,7 +8,7 @@ authors = [
     {name = "wedley", email = ""},
 ]
 dependencies = [
-    "django>=4.2",
+    "django>=4.2.2",
     "djangorestframework>=3.14.0",
     "django-cors-headers>=3.14.0",
 ]
