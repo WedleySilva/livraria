@@ -1,5 +1,3 @@
-[tool.pdm]
-
 [project]
 name = ""
 version = ""
