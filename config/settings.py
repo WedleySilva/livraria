@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "livraria",
     "corsheaders",
-    "rest_framework_simplejwt",
+    # "rest_framework_simplejwt",
 ]
 
 MIDDLEWARE = [
