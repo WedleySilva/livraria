@@ -1,5 +1,5 @@
 from django.db import models
-
+from uploader.models import Image
 from livraria.models import Autor, Categoria, Editora
 
 class Livro(models.Model):
@@ -14,3 +14,15 @@ class Livro(models.Model):
 
     def __str__(self):
         return f"{self.titulo} ({self.quantidade})"
+
+
+class Livro(models.Model):
+
+    capa = models.ForeignKey(
+        Image,
+        related_name="+",
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        default=None,
+    )
